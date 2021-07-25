@@ -1,0 +1,10 @@
+{
+    "success": true,
+    "record": {
+        "key": "79b9bd0f-8e4f-4f84-9f8e-55f777767f4d",
+        "owner": "60afd3b4-9e2e-4512-9c63-c15257ee45a2",
+        "limit": 120,
+        "queriesInPastMin": 0,
+        "totalQueries": 14
+    }
+}

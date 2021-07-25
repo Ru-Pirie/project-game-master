@@ -5,7 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "better-sqlite3": "^7.4.3",
-    "discord.js": "^12.5.3"
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "node-fetch": "^2.6.1"
   },
   "devDependencies": {},
   "scripts": {
