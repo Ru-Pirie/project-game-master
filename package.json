@@ -1,0 +1,21 @@
+{
+  "name": "project-game-master",
+  "version": "1.0.0",
+  "description": "A super secret project",
+  "main": "index.js",
+  "dependencies": {
+    "better-sqlite3": "^7.4.3",
+    "discord.js": "^12.5.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ru-Pirie/project-game-master.git"
+  },
+  "keywords": [],
+  "author": "ru-pirie",
+  "license": "GPL-3.0-or-later"
+}
