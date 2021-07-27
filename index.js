@@ -29,10 +29,6 @@ bot.once('spawn', () => {
 });
 
 async function main() {
-	const res = await fetch(`https://api.hypixel.net/key?key=${process.env.API_KEY}`);
-	const data = await res.json();
-	fs.writeFileSync('responce.json', JSON.stringify(data, null, 4));
-
 	const commandFolders = fs.readdirSync('./src/commands/discord').filter(f => !f.includes('.'));
 	commandFolders.forEach(folder => {
 		const commandFiles = fs.readdirSync(`./src/commands/discord/${folder}`).filter(file => file.endsWith('.js'));
