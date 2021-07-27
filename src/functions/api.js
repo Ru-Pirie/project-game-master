@@ -1,6 +1,15 @@
 const fetch = require('node-fetch');
 
 module.exports = {
+    /** 
+     * I pray for you if your using this
+     * 
+     * @param {string} query The query you wish to makes
+     * @param {string} key Key to add to query
+     * @param {string} value Value of the key to query
+     * 
+     * @return {object} Should return the json result of the query
+    **/
 	rawHypixel: async function(query, key, value) {
 		const res = await fetch(`https://api.hypixel.net/${query}?key=${process.env.API_KEY}&${key}=${value}`);
 		const data = await res.json();
@@ -18,7 +27,7 @@ module.exports = {
 			return { success: false, error: 'API Call Error' };
 		}
 		else {
-			return data;
+			console.log(data.player)
 		}
     },
     /** 
