@@ -7,7 +7,12 @@
     "better-sqlite3": "^7.4.3",
     "discord.js": "^12.5.3",
     "dotenv": "^10.0.0",
-    "node-fetch": "^2.6.1"
+    "mineflayer": "^3.9.0",
+    "node-canvas-webgl": "^0.2.6",
+    "node-fetch": "^2.6.1",
+    "prismarine-schematic": "^1.2.1",
+    "prismarine-viewer": "^1.19.3",
+    "string-similarity": "^4.0.4"
   },
   "devDependencies": {},
   "scripts": {
