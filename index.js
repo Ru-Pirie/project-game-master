@@ -1,16 +1,21 @@
 require('dotenv').config();
 
-const { getGame } = require('./src/functions/utility');
+const { getGameName, getGameCommand } = require('./src/functions/utility');
 
+const embed = require('./src/functions/embed');
 const api = require('./src/functions/api');
 const blob = require('./games_blob.json');
 const config = require('./config');
+
+const disbut = require('discord-buttons');
 const mineflayer = require('mineflayer');
 const mineflayerViewer = require('prismarine-viewer').mineflayer;
-const fetch = require('node-fetch');
 const fs = require('fs');
 const Discord = require('discord.js');
+
 const client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
+
+disbut(client);
 
 client.commands = new Discord.Collection();
 client.mcCommands = new Discord.Collection();
@@ -76,10 +81,11 @@ main();
 
 client.get = config.get;
 client.blob = blob.games;
-client.getGame = getGame;
-client.hypixel = api;
+client.getGameName = getGameName;
+client.getGameCommand = getGameCommand;
+client.apiFetch = api;
+client.embed = embed;
 
 client.login(process.env.TOKEN);
-
 
 module.exports = client;

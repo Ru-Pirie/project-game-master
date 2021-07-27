@@ -12,8 +12,7 @@ module.exports = {
 		args: 0,
 	},
 	async execute(client, bot, message, args) {
-		const result = lookup(args.join(' '));
-		console.log(result);
+		const result = lookup(args.join(' ').toLowerCase());
 		bot.chat(`Game: ${result.bestMatch.target}, Match: ${Math.round(result.bestMatch.rating * 100)}%`);
 	},
 };

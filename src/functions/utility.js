@@ -2,7 +2,8 @@ const blob = require('../../games_blob.json');
 const Similarity = require('string-similarity');
 
 function levelDistribution(s, t) {
-	const d = []; // 2d matrix
+	const d = [];
+	// 2d matrix
 
 	// Step 1
 	const n = s.length;
@@ -29,7 +30,8 @@ function levelDistribution(s, t) {
 			if (i == j && d[i][j] > 4) return n;
 
 			const t_j = t.charAt(j - 1);
-			const cost = (s_i == t_j) ? 0 : 1; // Step 5
+			const cost = (s_i == t_j) ? 0 : 1;
+			// Step 5
 
 			// Calculate the minimum
 			let mi = d[i - 1][j] + 1;
@@ -39,7 +41,8 @@ function levelDistribution(s, t) {
 			if (b < mi) mi = b;
 			if (c < mi) mi = c;
 
-			d[i][j] = mi; // Step 6
+			d[i][j] = mi;
+			// Step 6
 
 			// Damerau transposition
 			if (i > 1 && j > 1 && s_i == t.charAt(j - 2) && s.charAt(i - 2) == t_j) {
@@ -53,14 +56,18 @@ function levelDistribution(s, t) {
 }
 
 module.exports = {
-	getGame: function(gameName) {
+	getGameCommand: function(gameName) {
 		const find = blob.games.find(entry => entry.command === gameName);
+		return find;
+	},
+	getGameName: function(gameName) {
+		const find = blob.games.find(entry => entry.name.toLowerCase() === gameName.toLowerCase());
 		return find;
 	},
 	lookup(search) {
 		if (Array.isArray(blob.games) && blob.games.length >= 1) {
 			const grabCommands = blob.games.map(v => {
-				return v.name;
+				return v.name.toLowerCase();
 			}).filter(v => {
 				return v !== null;
 			});
