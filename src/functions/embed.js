@@ -21,7 +21,7 @@ module.exports = {
 		}
 	},
 	loginEmbed: async function(client, bot, channel) {
-        const query = await client.hypixel.raw('key')
+        const query = await client.hypixel.rawHypixel('key')
 		const embed = new Discord.MessageEmbed()
 			.setColor('GREEN')
 			.setTitle('Bot has Initialized!')
