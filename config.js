@@ -34,6 +34,7 @@ module.exports = {
 	},
 	emojis: {
 		pgmEmoji: '869568341981954048',
+		blankEmoji: '869967072866762843',
 	},
 	/**
      * @param {string} variable The variable you want the grab

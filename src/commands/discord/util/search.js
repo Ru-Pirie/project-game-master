@@ -3,6 +3,7 @@ const disbut = require('discord-buttons');
 
 module.exports = {
 	name: 'search',
+	aliases: ['request', 'play'],
 	description: 'Search for a hypixel game and be given the closest match',
 	usage: 'search [game]',
 	category: __dirname.split('/').slice(-1).pop(),
@@ -87,16 +88,20 @@ module.exports = {
 		await msg.awaitButtons(menuFilter, { max: 1, time: 30000, errors: ['time'] })
 			.then(async collected => {
 				if (collected.first().id === 'confirm') {
-					await msg.delete()
-					client.embed.gameRequestEmbed(match, message)
+					client.embed.gameRequestEmbed(match, message);
+					client.db.prepare('INSERT INTO QUEUE VALUES (?, ?, ?, ?)').run(message.author.id, 'UUID', match.command, Date.now());
+					await msg.delete();
+					await message.delete();
 				}
 				else if (collected.first().id === 'select') {
 					await msg.edit({ components: [row1], embed: embed });
 					msg.awaitMenus(menuFilter, { max: 1, time: 30000, errors: ['time'] })
 						.then(async entry => {
-							await msg.delete()
-							const game = client.getGameCommand(entry.first().values[0])
-							client.embed.gameRequestEmbed(game, message)
+							const game = client.getGameCommand(entry.first().values[0]);
+							client.embed.gameRequestEmbed(game, message);
+							client.db.prepare('INSERT INTO QUEUE VALUES (?, ?, ?, ?)').run(message.author.id, 'UUID', game.command, Date.now());
+							await message.delete();
+							await msg.delete();
 						})
 						.catch(() => {
 							msg.delete();

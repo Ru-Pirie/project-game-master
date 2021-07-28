@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const { getGameName, getGameCommand } = require('./src/functions/utility');
+const { db } = require('./src/functions/queries');
 
 const embed = require('./src/functions/embed');
 const api = require('./src/functions/api');
@@ -85,6 +86,7 @@ client.getGameName = getGameName;
 client.getGameCommand = getGameCommand;
 client.apiFetch = api;
 client.embed = embed;
+client.db = db;
 
 client.login(process.env.TOKEN);
 

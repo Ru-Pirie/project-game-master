@@ -1,7 +1,9 @@
-const db = require('better-sqlite3')(__dirname + '/../database/database.db');
+const Database = require('better-sqlite3');
+const db = new Database(__dirname + '/../database/database.db');
 
 module.exports = {
-	test: async function() {
-		return true;
+	db: db,
+	insetGame: function(id, gameCmd) {
+
 	},
 };
