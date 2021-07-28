@@ -14,20 +14,20 @@ module.exports = {
 		const res = await fetch(`https://api.hypixel.net/${query}?key=${process.env.API_KEY}&${key}=${value}`);
 		const data = await res.json();
 		if (!data.success || (data.success && data.player === null) || (data.success && data.guild === null)) {
-			return { success: false, error: 'API Call Error' };
+			return { success: false, error: data };
 		}
 		else {
 			return data;
 		}
 	},
-	playerSocials: async function(uuid) {
+	player: async function(uuid) {
 		const res = await fetch(`https://api.hypixel.net/player?key=${process.env.API_KEY}&uuid=${uuid}`);
 		const data = await res.json();
 		if (!data.success || (data.success && data.player === null) || (data.success && data.guild === null)) {
-			return { success: false, error: 'API Call Error' };
+			return data.player;
 		}
 		else {
-			return data.player.socialMedia;
+			return data.player;
 		}
 	},
 	/**
@@ -40,7 +40,7 @@ module.exports = {
 	rawMojang: async function(query) {
 		const res = await fetch(`https://api.mojang.com/${query}`);
 		const { status } = res;
-		if (status !== 200) return { success: false, error: 'API Call Error' };
+		if (status !== 200) return { success: false, error: res };
 		const data = await res.json();
 		return data;
 	},

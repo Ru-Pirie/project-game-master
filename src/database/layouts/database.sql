@@ -4,7 +4,6 @@ CREATE TABLE IF NOT EXISTS 'MEMBERS' (
     minecraftName VARCHAR(255),
     linked TINYINT(1) NOT NULL,
     dateLinked TIMESTAMP,
-    dateJoined TIMESTAMP,
     lastUpdated TIMESTAMP
 );
 

@@ -34,19 +34,19 @@ module.exports = {
 
 		const confirm = new disbut.MessageButton()
 			.setLabel('Confirm')
-			.setEmoji('✅')
+			.setEmoji(client.get('yesEmoji'))
 			.setID('confirm')
 			.setStyle('green');
 
 		const other = new disbut.MessageButton()
 			.setLabel('Select Other')
-			.setEmoji('↕️')
+			.setEmoji(client.get('plusEmoji'))
 			.setID('select')
 			.setStyle('blurple');
 
 		const cancel = new disbut.MessageButton()
 			.setLabel('Cancel')
-			.setEmoji('❌')
+			.setEmoji(client.get('noEmoji'))
 			.setID('cancel')
 			.setStyle('red');
 
